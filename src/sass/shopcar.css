@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar-default {
+  height: 30px;
+  padding: 0;
+}
+
+.navbar-default .navbar-collapse a {
+  line-height: 30px;
+  padding: 0;
+  padding-left: 10px;
+}
+
+.navbar-default .navbar-collapse li:hover a {
+  color: red;
+  text-decoration: underline;
+}
+
+.navbar-default .navbar-right li {
+  margin-right: 20px;
+}
+
+.navbar-default .navbar-right .bg-phone {
+  display: block;
+  height: 20px;
+  width: 20px;
+  background: url(../src/img/img-index/bg-sp3.png) no-repeat -273px -114px;
+  color: #333;
+  line-height: 28px;
+  position: absolute;
+  left: -11px;
+  top: 2px;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* bg */
+.flow-step li {
+  background: url(../src/img/img/step-bg.png) no-repeat;
+}
+
+.zlogin li,
+.buyer_center span,
+.footer .copyright i,
+.zp-findmod span {
+  background: url(../src/img/img/feedBack.css) no-repeat;
+}
+
+/* header */
+.header {
+  margin: 0 auto;
+  padding: 30px 0;
+  width: 960px;
+}
+
+.logo {
+  float: left;
+}
+
+.logo img {
+  display: block;
+  float: left;
+}
+
+.logo span {
+  float: left;
+  margin: 8px 0 0 8px;
+  padding: 0 0 0 10px;
+  border-left: 1px solid #e6e6e6;
+  font: 14px/44px arial;
+  color: #666;
+  cursor: pointer;
+}
+
+/* flow-step */
+.flow-step {
+  float: right;
+  padding: 2px 0 0;
+}
+
+.flow-step li {
+  float: left;
+  width: 105px;
+  padding: 0 14px 0 0;
+  background-position: 100% -74px;
+  background-color: #e6e6e6;
+  font: 14px/36px "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1";
+  text-align: center;
+}
+
+.flow-step .s1 {
+  padding: 0 14px;
+}
+
+.flow-step .s5 {
+  padding: 0;
+  background: #e6e6e6;
+}
+
+.flow-step-1 .s1,
+.flow-step-2 .s2,
+.flow-step-3 .s3,
+.flow-step-4 .s4,
+.flow-step-5 .s5 {
+  background-position: 100% -37px;
+  background-color: #e02d2d;
+  color: #fff;
+}
+
+td {
+  width: 110px;
+  text-align: center;
+}
+
+tr td:nth-of-type(1) {
+  width: 780px;
+}
+
+.itemlist {
+  list-style: none;
+  overflow: hidden;
+}
+
+.itemlist .item {
+  border: 1px solid orange;
+  margin: 20px;
+  overflow: hidden;
+}
+
+.itemlist .item > div {
+  float: left;
+  margin: 30px 20px;
+}
+
+.p-img img {
+  width: 100px;
+}
+
+.p-title {
+  width: 500px;
+}
+
+.like {
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.like a {
+  width: 120px;
+  color: black;
+  display: block;
+  border: 1px solid #ccc;
+  border-top: 2px solid #e02d2d;
+  border-bottom: 0;
+  background: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.like div {
+  border: 1px solid #ccc;
+  width: 960px;
+  height: 33px;
+  position: absolute;
+  bottom: -32px;
+  z-index: -1;
+}
+
+footer {
+  text-align: center;
+  width: 960px;
+  margin: 60px auto;
+  border-top: 1px solid #ccc;
+  padding-top: 30px;
+}
+
+footer ul {
+  padding-left: 250px;
+  font-size: 12px;
+}
+
+footer li {
+  float: left;
+}
+
+footer li a {
+  margin: 0 10px;
+}
+
+footer p {
+  font-size: 12px;
+}

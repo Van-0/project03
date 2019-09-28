@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <script src="../js/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../sass/index.css" />
+    <script src="../js/cookie.js"></script>
+
+    <script>
+        $(function() {
+            if (!cookie.get("isLogin")) {
+                $('#username').text('登录');
+
+            } else {
+                $('#username').html(cookie.get('username'));
+                $('#loginout').text('退出');
+                $('.line').text('');
+                $('#loginout').on('click', function() {
+                    cookie.remove('isLogin');
+                    cookie.remove('username');
+                    location.reload();
+                });
+            }
+
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="header index" style="padding-top:10px;">
+            <div class="wrap-logo wrapper clearfix">
+                <div class="logo fl">
+                    <a href="#"><img class="lazy" data-original="../img/img-index/img-1.png" alt="" /></a>
+                </div>
+                <div class="nav-box">
+                    <form action="">
+                        <div style=" border-radius: 5px">
+                            <input type="text" class="search" placeholder="请输入搜索关键词" /><button type="submit">搜&nbsp;&nbsp;索</button>
+                        </div>
+                    </form>
+                    <div class="search-hot">
+                        <a href="#">雪纺衫</a>
+                        <a href="#" style="color: red;">女包</a>
+                        <a href="#">凉鞋新品</a>
+                        <a href="#">短袖T恤</a>
+                        <a href="#">半身裙</a>
+                        <a href="#">薄七分裤</a>
+                        <a href="#">帆布鞋</a>
+                        <a href="#">凉席</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-navs">
+            <div class="wrapper clearfix">
+                <div class="navs fl">
+                    <a href="#" class="active">首页</a><a href="#">好价</a
+            ><a href="#">好物</a><a href="#">好店</a><a href="#">团购</a>
+                </div>
+                <div class="login fr">
+
+                    <div class="login-start">
+                        <a href="./login.html" class="mark" id="username"></a>
+                        <a href="./reg.html" class="line">注册</a>
+                        <a href="./index1.html" id="loginout"></a>
+                    </div>
+                </div>
+                <a href="#" class="icon-baoliao">爆料投稿</a>
+            </div>
+        </div>
+        <div class="wrapper clearfix relative mt">
+            <div class="class-nav fl pl3 pr3 pt6">
+                <span class="class-name mb mt">热门分类</span>
+                <div class="nav">
+                    <a href="#" class="pl12 f14 pr12 mb">手机数码</a>
+                    <em></em>
+
+                    <a href="#" class="pl12 f14 pr12 mb">电脑办公</a>
+
+                    <a href="#" class="pl12 f14 pr12 mb">钟表首饰</a>
+                    <em></em>
+
+                    <a href="#" class="pl12 f14 pr12 mb">美妆护肤</a>
+
+                    <a href="#" class="pl12 f14 pr12 mb">家居日用</a>
+                    <em></em>
+
+                    <a href="#" class="pl12 f14 pr12 mb">家电影音</a>
+
+                    <a href="#" class="pl12 f14 pr12 mb">服饰运动</a>
+                    <em></em>
+
+                    <a href="#" class="pl12 f14 pr12 mb">图书礼品</a>
+
+                    <a href="#" class="pl12 f14 pr12 mb">零食饮品</a>
+                    <em></em>
+
+                    <a href="#" class="pl12 f14 pr12 mb">母婴玩具</a>
+
+                    <a href="#" class="pl12 f14 pr12 mb">汽车用品</a>
+                    <em></em>
+
+                    <a href="#" class="pl12 f14 pr12 mb" style="color:#c00">9块9包邮</a
+            >
+          </div>
+          <span class="class-name mb mt20">热门导航</span>
+          <div class="nav">
+            <a href="#" class="pl12 f14 pr12 mb">好价</a>
+                    <a href="#" class="pl12 f14 pr12 mb">好物</a>
+                    <a href="#" class="pl12 f14 pr12 mb">好店</a>
+                    <a href="#" class="pl12 f14 pr12 mb">团购</a>
+                    <a href="#" class="pl12 f14 pr12 mb">天猫</a>
+                    <a href="#" class="pl12 f14 pr12 mb">淘宝</a>
+                </div>
+            </div>
+            <div class="clearfix banner-box fl">
+                <div id="slideBox">
+                    <div class="bd">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img class="lazy" data-original="../img/img-index/img-4.jpg" alt=".. " />
+                                </div>
+                                <div class="item">
+                                    <img class="lazy" data-original="../img/img-index/img-5.jpg" alt=".. " />
+                                </div>
+                                <div class="item">
+                                    <img class="lazy" data-original="../img/img-index/img-3.jpg" alt=".. " />
+                                </div>
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>
+        $(function() {
+            $("#tabs>ul>li").on("click", function() {
+                $(this)
+                    .addClass("active")
+                    .siblings()
+                    .removeClass("active");
+                var index = $("#tabs>ul>li").index(this); //获得索引
+                $("#tabs>div")
+                    .eq(index)
+                    .addClass("show")
+                    .siblings()
+                    .removeClass("show");
+            });
+        });
+    </script>
+    <div class="row wrapper">
+        <div class="col-md-9" style="padding: 0; background: #fff; margin-top: 15px;">
+            <div class="day" style="height: 333px;">
+                <div class="day-top">
+                    <img class="lazy" data-original="../img/img-index/img-6.png" alt="" />
+                    <span>特价不停</span>
+                    <a href="#">查看更多></a>
+                </div>
+                <ul class="list">
+                    <!-- <li>
+                        <a href="#">
+                            <span class="TOP"></span>
+                            <img  class="lazy" data-original="../img/img/1.jpg" style="margin-top: 11px;" />
+                        </a>
+                        <span>
+                英特尔（Intel）i5 9400F 酷睿六核 盒装CPU处理器 中文原包
+              </span>
+                        <b>￥</b>2488 <del>￥2999</del>
+                    </li> -->
+            </div>
+            <div class="day" style="margin-top: 20px;">
+                <div class="day-top">
+                    <img class="lazy" data-original="../img/img-index/huimaizhuanji.png" alt="" />
+                    <span>特价不停</span>
+                    <a href="#">查看更多></a>
+                </div>
+                <ul class="list1">
+                    <!-- <li>
+                        <a href="#">
+                            <img  class="lazy" data-original="../img/img/1.jpg" style="margin-top: 11px;" />
+                        </a>
+                        <span>
+                英特尔（Intel）i5 9400F 酷睿六核 盒装CPU处理器 中文原包
+              </span>
+                        <b>￥</b>2488 <del>￥2999</del>
+                    </li> -->
+                </ul>
+
+
+                <script src="../js/jquery.js"></script>
+                <script>
+                    $(function() {
+                        $.ajax({
+                            type: "get",
+                            url: "../lib/get.php",
+                            dataType: "json",
+                            success: function(data) {
+                                let temp = '';
+                                let temp2 = '';
+                                data.forEach((elm, i) => {
+                                    let pic = JSON.parse(elm.pic);
+                                    if (elm.id <= 5) {
+                                        temp += `<li>
+                                                 <a href="commodity.html?id=${elm.id}">
+                                                 <img  class="lazy" data-original="${pic[0].src}" style="margin-top: 11px; width:154px;height:154px;" />
+                                                </a>
+                                                <span>
+                                                 ${elm.title}
+                                                </span>
+                                                <b>￥</b>${elm.price} <del>￥${elm.old}</del>
+                                                 </li>`;
+
+                                    } else if (elm.id <= 10) {
+                                        temp2 += `<li>
+                                                <a href="commodity.html?id=${elm.id}">
+                                                 <img  class="lazy" data-original="${pic[0].src}" style="margin-top: 11px; width:154px;height:154px;" />
+                                                </a>
+                                                <span>
+                                                 ${elm.title}
+                                                </span>
+                                                <b>￥</b>${elm.price} <del>￥${elm.old}</del>
+                                                 </li>`;
+                                    }
+
+                                });
+
+                                $('.list').append(temp);
+                                $('.list1').append(temp2);
+                                $("img.lazy").lazyload({
+                                    effect: "fadeIn"
+                                });
+                            }
+                        });
+                    });
+                </script>
+
+
+
+
+            </div>
+        </div>
+        <div class="col-md-3" style="padding: 0;  margin-top: 15px;">
+            <div class="city" style="width: 280px;background: #fff;">
+                <div class="city-top">
+                    <h2>同城好店<a href="#">申请免费入住</a></h2>
+                </div>
+                <ul>
+                    <li style="overflow: hidden;">
+                        <img class="lazy" data-original="../img/img-index/img-12.jpg" width="60px" height="60px" />
+                        <a href="#">
+                            <h3>杭州幻想数码 (分期付款)</h3>
+                            <p>主营：笔记本电脑、手机、一体电脑、平板电脑</p>
+                        </a>
+                        <p class="bottom">
+                            <span class="star">
+                  <span class="star-top" style="width: 60%;"></span>
+                            <span class="star-bottom" style="width: 40%;"></span>
+                            </span>
+                            3318条评论
+                        </p>
+                    </li>
+                    <li style="overflow: hidden;">
+                        <img class="lazy" data-original="../img/img-index/img-12.jpg" width="60px" height="60px" />
+                        <a href="#">
+                            <h3>杭州幻想数码 (分期付款)</h3>
+                            <p>主营：笔记本电脑、手机、一体电脑、平板电脑</p>
+                        </a>
+                        <p class="bottom">
+                            <span class="star">
+                  <span class="star-top" style="width: 60%;"></span>
+                            <span class="star-bottom" style="width: 40%;"></span>
+                            </span>
+                            3318条评论
+                        </p>
+                    </li>
+                    <li style="overflow: hidden;">
+                        <img class="lazy" data-original="../img/img-index/img-12.jpg" width="60px" height="60px" />
+                        <a href="#">
+                            <h3>杭州幻想数码 (分期付款)</h3>
+                            <p>主营：笔记本电脑、手机、一体电脑、平板电脑</p>
+                        </a>
+                        <p class="bottom">
+                            <span class="star">
+                  <span class="star-top" style="width: 60%;"></span>
+                            <span class="star-bottom" style="width: 40%;"></span>
+                            </span>
+                            3318条评论
+                        </p>
+                    </li>
+                    <li style="overflow: hidden;">
+                        <img class="lazy" data-original="../img/img-index/img-12.jpg" width="60px" height="60px" />
+                        <a href="#">
+                            <h3>杭州幻想数码 (分期付款)</h3>
+                            <p>主营：笔记本电脑、手机、一体电脑、平板电脑</p>
+                        </a>
+                        <p class="bottom">
+                            <span class="star">
+                  <span class="star-top" style="width: 60%;"></span>
+                            <span class="star-bottom" style="width: 40%;"></span>
+                            </span>
+                            3318条评论
+                        </p>
+                    </li>
+                    <li style="overflow: hidden;">
+                        <img class="lazy" data-original="../img/img-index/img-12.jpg" width="60px" height="60px" />
+                        <a href="#">
+                            <h3>杭州幻想数码 (分期付款)</h3>
+                            <p>主营：笔记本电脑、手机、一体电脑、平板电脑</p>
+                        </a>
+                        <p class="bottom">
+                            <span class="star">
+                  <span class="star-top" style="width: 60%;"></span>
+                            <span class="star-bottom" style="width: 40%;"></span>
+                            </span>
+                            3318条评论
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row wrapper" style="position: relative; left: 10px; top: -260px;">
+        <div class="col-md-3 col-md-offset-9" style="background: #fff; padding:10px; width: 280px; margin-top: 10px;">
+            <img class="lazy" data-original="../img/img-index/img-21.jpg" alt="" />
+        </div>
+
+        <div class="col-md-3 col-md-offset-9 hotd" style="background: #fff; padding:10px; width: 280px; margin-top: 10px;">
+            <span class="hotdoor">热门团购</span
+        ><span class="it">智能潮货Hi购不停</span>
+            <ul>
+                <li>
+                    <a href="#"><img class="lazy" data-original="../img/img-index/phone.jpg" alt="" />
+                        <p>
+                            【新品现货】vivo X27（8GB RAM/骁龙710/全网通） 零界全面屏AI三摄 雀羽蓝 行货256GB
+                        </p>
+                    </a>
+                    <b>￥2488</b> <del>￥2999</del>
+                </li>
+                <li>
+                    <a href="#"><img class="lazy" data-original="../img/img-index/phone.jpg" alt="" />
+                        <p>
+                            【新品现货】vivo X27（8GB RAM/骁龙710/全网通） 零界全面屏AI三摄 雀羽蓝 行货256GB
+                        </p>
+                    </a>
+                    <b>￥2488</b> <del>￥2999</del>
+                </li>
+                <li>
+                    <a href="#"><img class="lazy" data-original="../img/img-index/phone.jpg" alt="" />
+                        <p>
+                            【新品现货】vivo X27（8GB RAM/骁龙710/全网通） 零界全面屏AI三摄 雀羽蓝 行货256GB
+                        </p>
+                    </a>
+                    <b>￥2488</b> <del>￥2999</del>
+                </li>
+                <li>
+                    <a href="#"><img class="lazy" data-original="../img/img-index/phone.jpg" alt="" />
+                        <p>
+                            【新品现货】vivo X27（8GB RAM/骁龙710/全网通） 零界全面屏AI三摄 雀羽蓝 行货256GB
+                        </p>
+                    </a>
+                    <b>￥2488</b> <del>￥2999</del>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-3 col-md-offset-9" style="background: #fff; padding:10px; width: 280px; margin-top: 10px;">
+            <img class="lazy" data-original="../img/img-index/img-31.jpg" alt="" />
+        </div>
+    </div>
+    <div class="row wrapper" style="position: relative; top: -1000px;">
+        <div class="col-md-9" style="background: #fff;">
+            <div id="tabs" class=".clearfix">
+                <ul>
+                    <li class="active">精选好价</li>
+                    <li>达人推荐</li>
+                    <li>精选好物</li>
+                </ul>
+                <div class="show" data-type="tabs">
+                    <ul class="list-list1">
+                        <!-- <li style="overflow: hidden;margin-top: 30px">
+                            <a href="#"><img  class="lazy" data-original="../img/img-index/img-22.jpg" alt=""> </a><a href="#">[聚划算]5亿品质用户精明之选 每日精选优良团购商品 品质生活保证<br>全场包邮 超级单品爆款五折抢 1元抢购中秋爆款美食 </a>
+                            <div>
+                                <a href="#">商品详情</a>
+                                <img  class="lazy" data-original="../img/img-index/img-23.png" width="24px" height="24px" alt=""><b>天猫商城</b>
+                            </div>
+                            <button type="button" class="btn btn-danger">去看看 ></button>
+                        </li> -->
+                    </ul>
+
+                </div>
+                <div data-type="tabs">
+                    <ul class="list-list">
+                        <!-- <li style="overflow: hidden;margin-top: 30px">
+                            <a href="#"><img  class="lazy" data-original="../img/img-index/img-22.jpg" alt=""> </a><a href="#">[聚划算]5亿品质用户精明之选 每日精选优良团购商品 品质生活保证<br>全场包邮 超级单品爆款五折抢 1元抢购中秋爆款美食 </a>
+                            <div>
+                                <a href="#">商品详情</a>
+                                <img  class="lazy" data-original="../img/img-index/img-23.png" alt=""><b>天猫商城</b>
+                            </div>
+                            <button type="button" class="btn btn-danger">去看看 ></button>
+                        </li> -->
+                    </ul>
+                    <script>
+                        $(function() {
+                            $.ajax({
+                                type: "get",
+                                url: "../lib/get.php",
+                                dataType: "json",
+                                success: function(data) {
+                                    let temp = '';
+                                    let temp1 = '';
+                                    let temp2 = '';
+                                    data.forEach((elm, i) => {
+                                        let pic = JSON.parse(elm.pic);
+                                        if (elm.id <= 5) {
+                                            temp += `<li style="overflow: hidden;margin-top: 30px">
+                            <a href="#"><img  class="lazy" data-original="${pic[0].src}" width="154px" height="154px" alt=""> </a><a href="#">[聚划算]5亿品质用户精明之选 每日精选优良团购商品 品质生活保证<br>全场包邮 超级单品爆款五折抢 1元抢购中秋爆款美食 </a>
+                            <div>
+                                <a href="#">商品详情</a>
+                                <img  class="lazy" data-original="../img/img-index/img-23.png" width="24px" height="24px" alt=""><b>天猫商城</b>
+                            </div>
+                            <button type="button" class="btn btn-danger">去看看 ></button>
+                        </li>`;
+
+                                        } else if (elm.id >= 6 && elm.id <= 10) {
+                                            temp2 += `<li style="overflow: hidden;margin-top: 30px">
+                            <a href="#"><img  class="lazy" data-original="${pic[0].src}" width="154px" height="154px" alt=""> </a><a href="#">[聚划算]5亿品质用户精明之选 每日精选优良团购商品 品质生活保证<br>全场包邮 超级单品爆款五折抢 1元抢购中秋爆款美食 </a>
+                            <div>
+                                <a href="#">商品详情</a>
+                                <img  class="lazy" data-original="../img/img-index/img-23.png" width="24px" height="24px" alt=""><b>天猫商城</b>
+                            </div>
+                            <button type="button" class="btn btn-danger">去看看 ></button>
+                        </li>`;
+                                        } else
+                                        if (elm.id >= 11 && elm.id <= 15) {
+                                            temp1 += `<li style="overflow: hidden;margin-top: 30px;margin-left:10px;">
+                            <a href="#"><img  class="lazy" data-original="${pic[0].src}" width="154px" height="154px" alt=""> </a><a href="#">${elm.title}<br>${elm.price} </a>
+                            <div>
+                                <a href="#">商品详情</a>
+                                <img  class="lazy" data-original="../img/img-index/img-23.png" width="24px" height="24px" alt=""><b>天猫商城</b>
+                            </div>
+                            <button type="button" class="btn btn-danger">去看看 ></button>
+                        </li>`
+                                        }
+
+
+
+
+
+
+                                    });
+
+                                    $('.list-list').append(temp);
+                                    $('.list-list1').append(temp1);
+                                    $('.list-list2').append(temp2);
+                                    $("img.lazy").lazyload({
+                                        effect: "fadeIn"
+                                    });
+
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+                <div data-type="tabs">
+                    <ul class="list-list2">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer mt20">
+        <div class="wrapper clearfix">
+            <span class="fl">© 2019 中关村在线 版权所有</span>
+            <span class="fr">
+          <a href="#">公司简介</a>
+                                <a href="#">公司历程</a>
+                                <a href="#">营销推广</a>
+                                <a href="#">媒体合作</a>
+                                <a href="#">品牌大全</a>
+                                <a href="#">注册账号</a>
+                                <a href="#">招聘信息</a>
+                                <a href="#">联系方式</a>
+                                <a href="#">隐私声名</a>
+                                <a href="#">站点地图</a>
+                                <a href="#" class="none-link">反馈纠错</a>
+                                </span>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.lazyload.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+            $("img.lazy").lazyload({
+                effect: "fadeIn"
+            });
+        });
+    </script>
+</body>
+
+</html>
