@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>购物车</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../../sass/details.css">
+    <link rel="stylesheet" href="../../sass/shopcar.css">
+
+</head>
+
+<body>
+    <nav class="navbar-default">
+        <div class="container">
+            <div class=" navbar-collapse" style="font-size:12px;">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">商城首页</a>
+                    </li>
+                    <li>
+                        <a href="#">您好,</a>
+                    </li>
+                    <li>
+                        <a href="login.html" id="username">请登录</a>
+                    </li>
+                    <li>
+                        <a href="#" style="color: cornflowerblue;" id="loginout">退出</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">我的订单</a></li>
+                    <li><a href="#">卖家中心<span class="caret"></span></a></li>
+                    <li><a href="#">购物车</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                    <li><a href="#">|</a></li>
+                    <li>
+                        <span class="bg-phone"></span><a href="#">手机商城<span class="caret"></span></a></span>
+                    </li>
+                    <li><a href="#">中关村在线</a></li>
+                    <li><a href="#">招商合作</a></li>
+                    <li><a href="#">联系客服<span class="caret"></span></a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div class="header clearfix">
+        <!--logo样式 -->
+        <div class="logo">
+            <a href="#" title="中关村商城"><img class="lazy" data-original="../img/img/logo_.png" width="130" height="60"></a>
+        </div>
+        <div class="flow-step">
+            <ul class="flow-step-1">
+                <li class="s1">加入购物车</li>
+                <li class="s2">下订单</li>
+                <li class="s3">去付款</li>
+                <li class="s4">确认收货</li>
+                <li class="s5">评价</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container" style="font-size: 16px;">
+        <!-- <div class="pic"></div>
+        <div class="text">
+            <h5>您的购物车里还没有商品，您可以：</h5>
+            去<a href="#">挑选商品</a>
+        </div> -->
+        <table>
+            <tr style="border-top:2px solid orange">
+                <td>所选商品</td>
+                <td>数量</td>
+                <td>价格</td>
+                <td>操作</td>
+            </tr>
+        </table>
+
+        <ul class="itemlist">
+            <!-- <li class="item">
+                <div class="c-box">
+                    <input type="checkbox" id="p1">
+                </div>
+                <div class="p-img">
+                    <img  class="lazy" data-original="../img/img-index/fdj1-1.jpg" alt="">
+                </div>
+                <div class="p-title">
+                    Apple MacBook Pro 13.3英寸笔记本电脑 深空灰色 2018新款（四核八代i5 8G 256G固态硬盘 MR9Q2CH/A）
+                </div>
+                <div class="p-num">
+                    数量：<input type="number" value="1" min="1" max="55">
+                </div>
+                <div class="p-price">
+                    单价:9999.00
+                </div>
+                <div class="p-sum">
+                    总价:9999.00
+                </div>
+                <div class="del"><a href="#">删除</a></div>
+            </li> -->
+
+        </ul>
+        <script src="../js/jquery.js"></script>
+        <script src="../js/cookie.js"></script>
+
+        <script>
+            $(function() {
+                var shop = cookie.get("shop");
+                if (shop) {
+                    shop = JSON.parse(shop);
+                    var idList = shop.map(elm => elm.id).join();
+                    $.ajax({
+                        type: "get",
+                        url: "../lib/shop.php",
+                        data: {
+                            idList: idList
+                        },
+                        dataType: "json",
+                        success: function(data) {
+                            var tempstr = "";
+
+                            data.forEach(elm => {
+                                let pic = JSON.parse(elm.pic);
+                                var arr = shop.filter((val, i) => {
+                                    return val.id == elm.id;
+                                });
+                                tempstr += `
+                            <li class="item" data-main="${elm.id}">
+                                <div class="c-box">
+                                    <input type="checkbox" id="p1">
+                                </div>
+                                <div class="p-img">
+                                    <img  class="lazy" data-original="${pic[0].src}">
+                                </div>
+                                <div class="p-title">
+                                    ${elm.title}
+                                </div>
+                                <div class="amount-widget" id="click">
+                                        <span class="zs-decrease zs-no-decrease next" style="cursor: pointer;"></span>
+                                        <input name="zp-goods-number" 
+                                        type="text" value="${arr[0].num}" class="zs-goods-number" id="zp-number">
+                                        <span class="zs-increase next" style="cursor: pointer;"></span>
+                                    </div>
+                                <div class="p-price" style="color:red;">
+                                    单价:<span>${elm.price}</span>
+                                </div>
+                                <div class="p-sum" style="color:red;width:110px;">
+                                    总价:<span>${(arr[0].num * elm.price).toFixed(2)}<span>
+                                </div>
+                                <div class="del"><a href="#">删除</a></div>
+                            </li>`;
+
+                            });
+
+                            $(".itemlist").append(tempstr);
+
+                            $('.next').on('click', function(ev) {
+                                // var input = $('#zp-number');
+                                var input = $(ev.target).siblings('#zp-number');
+                                var value = parseInt(input.val());
+                                input[0].value = $(ev.target).hasClass('zs-decrease') ? value - 1 : value + 1;
+
+
+                                var num1 = parseInt($(ev.target).parent().siblings('.p-price').children().text());
+                                var num2 = num1 * (input[0].value)
+                                $(ev.target).parent().siblings('.p-sum').children().html(num2.toFixed(2));
+                            })
+                            console.log()
+                            $('.itemlist').on('click', function(ev) {
+                                if (ev.target.nodeName == 'A') {
+                                    $(ev.target).parent().parent().remove();
+                                    var id1 = $('li').index($(ev.target).parent().parent());
+                                    var shop2 = [];
+                                    shop2 = shop.splice(id1, 1);
+                                    cookie.set("shop", JSON.stringify(shop), 1);
+                                    // if (id1 == -1) {
+                                    //     cookie.remove('shop');
+                                    // }
+                                    // console.log(shop);
+                                    // shop.forEach((elm, i) => {
+                                    //     if (id1 == elm.id) {
+                                    //         // console.log(shop[i])
+                                    //         // console.log(shop)
+                                    //         // cookie.remove('shop');
+                                    //         shop = shop.splice(shop[i], 1);
+
+                                    //     }
+                                    //     // console.log(arr);
+                                    //     // var shop = [];
+                                    //     // shop2.push(arr);
+                                    //     // console.log(arr)
+                                    // })
+
+                                    // cookie.remove('shop');
+                                    // // document.cookie = " shop='';expires=-1";
+                                    // $('.itemlist').html('<h3 style="color:blue;">!!!!!您得购物车空荡荡的......</h3>')
+                                }
+                            })
+                            $("img.lazy").lazyload({
+                                effect: "fadeIn"
+                            });
+                        }
+                    });
+                } else {
+                    $('.itemlist').html('<h3 style="color:blue;">!!!!!您得购物车空荡荡的......</h3>')
+                }
+
+
+
+                if (!cookie.get("isLogin")) {
+                    // $('#username').text('');
+                } else {
+                    $('#username').html(cookie.get('username'));
+                    $('#loginout').on('click', function() {
+                        cookie.remove('isLogin');
+                        cookie.remove('username');
+                        location.reload();
+                    });
+                }
+
+            });
+        </script>
+    </div>
+    <div class="container">
+        <div style="float:  right;margin-right: 100px;">
+            <button type="button" class="btn btn-primary money" style="width: 130px;">去结算</button>
+        </div>
+        <script>
+            $('.money').on('click', function() {
+                alert('扫码付款');
+            })
+        </script>
+    </div>
+    <div class="like">
+        <a href="#">猜你喜欢</a>
+        <div></div>
+    </div>
+    <footer>
+        <ul style="overflow: hidden;">
+            <li><a href="#">关于商城</a>|</li>
+            <li><a href="#">营销中心</a>|</li>
+            <li><a href="#">服务中心</a>|</li>
+            <li><a href="#">联系我们</a>|</li>
+            <li><a href="#">发展历程</a>|</li>
+            <li><a href="#">媒体报道</a></li>
+        </ul>
+        <p>©2019中关村在线 版权所有. 京ICP备09041801号-182 <a href="#">京ICP证010391号</a>
+        </p>
+        <div>
+            <a href="#"><img class="lazy" data-original="../img/img/beian.png" alt=""></a>
+            <a href="#"><img class="lazy" data-original="../img/img/jingcha.png" alt=""></a>
+            <a href="#"><img class="lazy" data-original="../img/img/cert.png" alt=""></a>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.lazyload.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+            $("img.lazy").lazyload({
+                effect: "fadeIn"
+            });
+        });
+    </script>
+</body>
+
+</html>
